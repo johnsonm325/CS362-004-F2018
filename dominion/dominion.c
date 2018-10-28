@@ -247,19 +247,19 @@ int playCard(int handPos, int choice1, int choice2, int choice3, struct gameStat
 	
   //get card played
   card = handCard(handPos, state);
-	
+  
   //check if selected card is an action
   if ( card < adventurer || card > treasure_map )
     {
       return -1;
     }
-	
+  
   //play card
   if ( cardEffect(card, choice1, choice2, choice3, state, handPos, &coin_bonus) < 0 )
     {
       return -1;
     }
-	
+
   //reduce number of actions
   state->numActions--;
 
@@ -390,7 +390,7 @@ int endTurn(struct gameState *state) {
 int isGameOver(struct gameState *state) {
   int i;
   int j;
-	
+
   //if stack of Province cards is empty, the game ends
   if (state->supplyCount[province] == 0)
     {
@@ -667,11 +667,11 @@ int adventurerCard(int drawntreasure, struct gameState *state, int currentPlayer
     cardDrawn = state->hand[currentPlayer][state->handCount[currentPlayer]];//top card of hand is most recently drawn card.
     if (cardDrawn == copper || cardDrawn == silver || cardDrawn == gold)
       drawntreasure++;
-      else{
-        temphand[z]=cardDrawn;
-        state->handCount[currentPlayer]--; //this should just remove the top card (the most recently drawn one).
-        z++;
-      }
+    else{
+      temphand[z]=cardDrawn;
+      state->handCount[currentPlayer]--; //this should just remove the top card (the most recently drawn one).
+      z++;
+    }
   }
   while(z-1>=0){
     state->discard[currentPlayer][state->discardCount[currentPlayer]++]=temphand[z-1]; // discard all cards in play that have been drawn
