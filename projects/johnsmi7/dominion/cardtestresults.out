@@ -1,0 +1,84 @@
+Results for Dominion Card Unit Tests:
+cardtest1.c:
+TEST 1: If player 1 deck is empty, will shuffle cards.
+Function returns 0: PASSED
+Three coins remain in deck and top 2 coin cards were removed: FAILED
+Hand count is 7: FAILED
+Discard count is 0: FAILED
+
+TEST 2: If player draws non coin card, will discard.
+Function returns 0: PASSED
+Hand count is 7: FAILED
+Discard count is 2 and contains non-coin cards: FAILED
+Discard count is 2: FAILED
+Deck count is 1: FAILED
+
+File 'dominion.c'
+Lines executed:32.86% of 563
+Branches executed:33.81% of 417
+Taken at least once:26.14% of 417
+Calls executed:12.63% of 95
+Creating 'dominion.c.gcov'
+
+cardtest2.c:
+TEST 1: If player deck has 3 cards, will draw 3 cards into hand.
+Function returns 0: PASSED
+Two cards remain in deck and top 3 cards were removed: FAILED
+Seven cards now in hand and smithy card was removed: PASSED
+Smithy card was played: PASSED
+
+TEST 2: If player has smithy in middle of deck, will correctly remove.
+Function returns 0: PASSED
+Two cards remain in deck and top 3 cards were removed: FAILED
+Seven cards now in hand and smithy card was removed: PASSED
+Smithy card was played: PASSED
+
+File 'dominion.c'
+Lines executed:36.06% of 563
+Branches executed:35.73% of 417
+Taken at least once:27.58% of 417
+Calls executed:15.79% of 95
+Creating 'dominion.c.gcov'
+
+cardtest3.c:
+TEST 1: If player deck has cards, will draw 1 card into hand and add an action.
+Function returns 0: PASSED
+Four cards remain in deck and top card was removed: PASSED
+Five cards in hand, Great Hall card was removed: PASSED
+Great Hall card was played: PASSED
+One action added: PASSED
+
+TEST 2: If player has Great Hall in middle of deck, will correctly remove.
+Function returns 0: PASSED
+Four cards remain in deck and top card was removed: PASSED
+Five cards in hand and Great Hall card was removed: PASSED
+Great Hall card was played: PASSED
+One action added: PASSED
+
+File 'dominion.c'
+Lines executed:36.77% of 563
+Branches executed:35.73% of 417
+Taken at least once:27.82% of 417
+Calls executed:17.89% of 95
+Creating 'dominion.c.gcov'
+
+cardtest4.c:
+TEST 1: If player deck has cards, will draw 1 card into hand and add an action.
+Function returns 0: PASSED
+Four cards remain in hand and Outpost card was removed: PASSED
+Outpost card was played: PASSED
+Outpost flag set: PASSED
+
+TEST 2: If player has Outpost in middle of deck, will correctly remove.
+Function returns 0: PASSED
+Four cards in hand and Outpost card was removed: PASSED
+Outpost card was played: PASSED
+Outpost flag set: PASSED
+
+File 'dominion.c'
+Lines executed:37.48% of 563
+Branches executed:35.73% of 417
+Taken at least once:28.30% of 417
+Calls executed:18.95% of 95
+Creating 'dominion.c.gcov'
+
