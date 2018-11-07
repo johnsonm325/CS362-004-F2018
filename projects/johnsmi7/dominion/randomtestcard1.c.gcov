@@ -1,0 +1,289 @@
+        -:    0:Source:randomtestcard1.c
+        -:    0:Graph:randomtestcard1.gcno
+        -:    0:Data:randomtestcard1.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:/***********************************************
+        -:    2: * Michael Johnson
+        -:    3: * Assignment 3
+        -:    4: * CS362 - Fall 2018
+        -:    5: * ********************************************/
+        -:    6:
+        -:    7:#include "dominion.h"
+        -:    8:#include "dominion_helpers.h"
+        -:    9:#include <string.h>
+        -:   10:#include <stdio.h>
+        -:   11:#include <stdlib.h>
+        -:   12:#include <assert.h>
+        -:   13:#include "rngs.h"
+        -:   14:
+        -:   15:int k[10];
+        -:   16:
+        -:   17:void randomize(int*, int, int, int);
+        -:   18:void randomGameInitialize(int, struct gameState*);
+        -:   19:void randomGameState(struct gameState*);
+        -:   20:
+function randomize called 124 returned 100% blocks executed 100%
+      124:   21:void randomize(int *array, int arrSize, int top, int bottom)
+        -:   22:{
+      124:   23:  int i = 0;
+        -:   24:  int x;
+     1893:   25:  while(i<arrSize){
+branch  0 taken 93%
+branch  1 taken 7% (fallthrough)
+     1645:   26:    int r = (rand() % (top - bottom + 1)) + bottom;
+call    0 returned 100%
+        -:   27:
+     8482:   28:    for (x = 0; x < i; x++)
+branch  0 taken 85%
+branch  1 taken 15% (fallthrough)
+        -:   29:    {
+     7242:   30:      if(array[x] == r){
+branch  0 taken 6% (fallthrough)
+branch  1 taken 94%
+      405:   31:        break;
+        -:   32:      }
+        -:   33:    }
+     1645:   34:    if(x == i){
+branch  0 taken 75% (fallthrough)
+branch  1 taken 25%
+     1240:   35:      array[i++] = r;
+        -:   36:    }
+        -:   37:  }
+      124:   38:}
+        -:   39:
+function randomGameInitialize called 50 returned 100% blocks executed 100%
+       50:   40:void randomGameInitialize(int seed, struct gameState *G)
+        -:   41:{
+       50:   42:  int upper = 26,
+       50:   43:      lower = 7,
+        -:   44:      numPlayers;
+        -:   45:  
+        -:   46:  do
+        -:   47:  {
+      124:   48:    randomize(k, 10, upper, lower);
+call    0 returned 100%
+      330:   49:  }while(k[0] == 13 || k[1] == 13 || k[2] == 13 || k[3] == 13 || k[4] == 13 ||
+branch  0 taken 8%
+branch  1 taken 92% (fallthrough)
+branch  2 taken 9%
+branch  3 taken 91% (fallthrough)
+branch  4 taken 6%
+branch  5 taken 94% (fallthrough)
+branch  6 taken 3%
+branch  7 taken 97% (fallthrough)
+branch  8 taken 6%
+branch  9 taken 94% (fallthrough)
+      297:   50:         k[5] == 13 || k[6] == 13 || k[7] == 13 || k[8] == 13 || k[9] == 13);
+branch  0 taken 6%
+branch  1 taken 94% (fallthrough)
+branch  2 taken 10%
+branch  3 taken 90% (fallthrough)
+branch  4 taken 9%
+branch  5 taken 91% (fallthrough)
+branch  6 taken 9%
+branch  7 taken 91% (fallthrough)
+branch  8 taken 21%
+branch  9 taken 79% (fallthrough)
+       50:   51:  k[0] = smithy;
+        -:   52:
+       50:   53:  numPlayers = (rand() % (4 - 2 + 1)) + 2;
+call    0 returned 100%
+        -:   54:
+       50:   55:  initializeGame(numPlayers, k, seed, G);
+call    0 returned 100%
+       50:   56:}
+        -:   57:
+function randomGameState called 50 returned 100% blocks executed 100%
+       50:   58:void randomGameState(struct gameState *G)
+        -:   59:{
+        -:   60:  int i,
+        -:   61:      j,
+       50:   62:      countUpper = 15,
+       50:   63:      countLower = 0,
+        -:   64:      tableCards[16],
+        -:   65:      card,
+        -:   66:      smithyCounter;
+        -:   67:
+      550:   68:  for(i = 7; i < 17; i++)
+branch  0 taken 91%
+branch  1 taken 9% (fallthrough)
+        -:   69:  {
+      500:   70:    tableCards[i] = k[i-7];
+        -:   71:  }
+        -:   72:
+      400:   73:  for(i = 0; i < 7; i++)
+branch  0 taken 88%
+branch  1 taken 13% (fallthrough)
+        -:   74:  {
+      350:   75:    tableCards[i] = i;
+        -:   76:  }
+        -:   77:
+      203:   78:  for(i = 0; i < G->numPlayers; i++)
+branch  0 taken 75%
+branch  1 taken 25% (fallthrough)
+        -:   79:  {
+        -:   80:    do
+        -:   81:    {
+      170:   82:      G->handCount[i] = (rand() % (countUpper - countLower + 1)) + countLower;
+call    0 returned 100%
+      170:   83:      G->deckCount[i] = (rand() % (countUpper - countLower + 1)) + countLower;
+call    0 returned 100%
+      170:   84:      G->discardCount[i] = (rand() % (countUpper - countLower + 1)) + countLower;
+call    0 returned 100%
+      170:   85:    }while( ((G->deckCount[i] + G->discardCount[i]) < 3) || G->handCount[i] == 0);
+branch  0 taken 4%
+branch  1 taken 96% (fallthrough)
+branch  2 taken 7%
+branch  3 taken 93% (fallthrough)
+        -:   86:
+        -:   87:    do
+        -:   88:    {
+      651:   89:      smithyCounter = 0;
+     3971:   90:      for(j = 0; j < G->handCount[i]; j++)
+branch  0 taken 84%
+branch  1 taken 16% (fallthrough)
+        -:   91:      {
+     3320:   92:        card = (rand() % (countUpper - countLower + 1)) + countLower;
+call    0 returned 100%
+     3320:   93:        G->hand[i][j] = tableCards[card];
+     3320:   94:        if (G->hand[i][j] == smithy)
+branch  0 taken 6% (fallthrough)
+branch  1 taken 94%
+        -:   95:        {
+      193:   96:          smithyCounter++;
+        -:   97:        }
+        -:   98:      }
+      651:   99:    }while(smithyCounter == 0);
+branch  0 taken 76%
+branch  1 taken 24% (fallthrough)
+        -:  100:
+     1329:  101:    for(j = 0; j < G->deckCount[i]; j++)
+branch  0 taken 88%
+branch  1 taken 12% (fallthrough)
+        -:  102:    {
+     1176:  103:      card = (rand() % (countUpper - countLower + 1)) + countLower;
+call    0 returned 100%
+     1176:  104:      G->deck[i][j] = tableCards[card];
+        -:  105:    }
+        -:  106:
+     1299:  107:    for(j = 0; j < G->discardCount[i]; j++)
+branch  0 taken 88%
+branch  1 taken 12% (fallthrough)
+        -:  108:    {
+     1146:  109:      card = (rand() % (countUpper - countLower + 1)) + countLower;
+call    0 returned 100%
+     1146:  110:      G->discard[i][j] = tableCards[card];
+        -:  111:    }
+        -:  112:  }
+       50:  113:}
+        -:  114:
+function main called 1 returned 100% blocks executed 94%
+        1:  115:int main()
+        -:  116:{
+        -:  117:  int i,
+        -:  118:      j,
+        -:  119:      k,
+        -:  120:      returned,
+        1:  121:      choice1 = 0,
+        1:  122:      choice2 = 0,
+        1:  123:      choice3 = 0,
+        1:  124:      upper = 26,
+        1:  125:      lower = 0,
+        1:  126:      seed = 1000,
+        -:  127:      handPos;
+        1:  128:  srand(time(NULL));
+call    0 returned 100%
+call    1 returned 100%
+        -:  129:
+       51:  130:  for(i = 0; i < 50; i ++)
+branch  0 taken 98%
+branch  1 taken 2% (fallthrough)
+        -:  131:  {
+       50:  132:    printf("\nTurn #%d\n", (i+1));
+call    0 returned 100%
+        -:  133:    struct gameState G;
+        -:  134:    struct gameState G2;
+       50:  135:    randomGameInitialize(seed, &G);
+call    0 returned 100%
+       50:  136:    randomGameState(&G);
+call    0 returned 100%
+        -:  137:  
+        -:  138:
+        -:  139:/************************************************************
+        -:  140: * TESTS
+        -:  141: * *********************************************************/
+      203:  142:    for(j = 0; j < G.numPlayers; j++)
+branch  0 taken 75%
+branch  1 taken 25% (fallthrough)
+        -:  143:    {
+      153:  144:      printf("\nPlayer %d\n", (j+1));
+call    0 returned 100%
+      153:  145:      G.playedCardCount = 0;
+      153:  146:      G.whoseTurn = j;
+        -:  147:      
+      153:  148:      choice1 = (rand() % (upper - lower + 1)) + lower;
+call    0 returned 100%
+      153:  149:      choice2 = (rand() % (upper - lower + 1)) + lower;
+call    0 returned 100%
+      153:  150:      choice3 = (rand() % (upper - lower + 1)) + lower;
+call    0 returned 100%
+        -:  151:
+      153:  152:      G2 = G;
+        -:  153:
+      624:  154:      for(k = 0; k < G.handCount[j]; k++)
+branch  0 taken 100%
+branch  1 taken 0% (fallthrough)
+        -:  155:      {
+      624:  156:        if(G.hand[j][k] == 13)
+branch  0 taken 25% (fallthrough)
+branch  1 taken 75%
+        -:  157:	{
+      153:  158:          handPos = k;
+      153:  159:	  break;
+        -:  160:	}
+        -:  161:      }
+        -:  162:
+      153:  163:      returned = cardEffect(smithy, choice1, choice2, choice3, &G, handPos, NULL);
+call    0 returned 100%
+        -:  164:
+      153:  165:      if(G.handCount[j] == (G2.handCount[j] + 2))
+branch  0 taken 1% (fallthrough)
+branch  1 taken 99%
+        -:  166:      {
+        1:  167:        printf("Correctly draw 3 cards: PASSED\n");
+call    0 returned 100%
+        -:  168:      }
+        -:  169:      else
+        -:  170:      {
+      152:  171:        printf("Correctly draw 3 cards: FAILED\n");
+call    0 returned 100%
+        -:  172:      }
+        -:  173:
+      153:  174:      if(G.playedCardCount == 1)
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+        -:  175:      {
+      153:  176:        if(G.playedCards[0] == 13)
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+        -:  177:	{
+      153:  178:          printf("Correctly played smithyCard: PASSED\n");
+call    0 returned 100%
+        -:  179:	}
+        -:  180:	else
+        -:  181:	{
+    #####:  182:          printf("Correctly played smithyCard: FAILED\n");
+call    0 never executed
+        -:  183:	}
+        -:  184:      }
+        -:  185:      else
+        -:  186:      {
+    #####:  187:        printf("Correctly played smithyCard: FAILED\n");
+call    0 never executed
+        -:  188:      }
+        -:  189:    }
+        -:  190:  }
+        1:  191:  printf("RANDOM TEST - SMITHY CARD\n***********************************************************************************************************************************\n");
+call    0 returned 100%
+        -:  192:}

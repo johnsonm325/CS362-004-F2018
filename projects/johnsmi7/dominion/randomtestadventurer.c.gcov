@@ -1,0 +1,311 @@
+        -:    0:Source:randomtestadventurer.c
+        -:    0:Graph:randomtestadventurer.gcno
+        -:    0:Data:randomtestadventurer.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:/***********************************************
+        -:    2: * Michael Johnson
+        -:    3: * Assignment 3
+        -:    4: * CS362 - Fall 2018
+        -:    5: * ********************************************/
+        -:    6:
+        -:    7:#include "dominion.h"
+        -:    8:#include "dominion_helpers.h"
+        -:    9:#include <string.h>
+        -:   10:#include <stdio.h>
+        -:   11:#include <stdlib.h>
+        -:   12:#include <assert.h>
+        -:   13:#include "rngs.h"
+        -:   14:
+        -:   15:int k[10];
+        -:   16:
+        -:   17:void randomize(int*, int, int, int);
+        -:   18:void randomGameInitialize(int, struct gameState*);
+        -:   19:void randomGameState(struct gameState*);
+        -:   20:
+function randomize called 100 returned 100% blocks executed 100%
+      100:   21:void randomize(int *array, int arrSize, int top, int bottom)
+        -:   22:{
+      100:   23:  int i = 0;
+        -:   24:  int x;
+     1529:   25:  while(i<arrSize){
+branch  0 taken 93%
+branch  1 taken 7% (fallthrough)
+     1329:   26:    int r = (rand() % (top - bottom + 1)) + bottom;
+call    0 returned 100%
+        -:   27:
+     6802:   28:    for (x = 0; x < i; x++)
+branch  0 taken 85%
+branch  1 taken 15% (fallthrough)
+        -:   29:    {
+     5802:   30:      if(array[x] == r){
+branch  0 taken 6% (fallthrough)
+branch  1 taken 94%
+      329:   31:        break;
+        -:   32:      }
+        -:   33:    }
+     1329:   34:    if(x == i){
+branch  0 taken 75% (fallthrough)
+branch  1 taken 25%
+     1000:   35:      array[i++] = r;
+        -:   36:    }
+        -:   37:  }
+      100:   38:}
+        -:   39:
+function randomGameInitialize called 100 returned 100% blocks executed 100%
+      100:   40:void randomGameInitialize(int seed, struct gameState *G)
+        -:   41:{
+        -:   42:  int i,
+      100:   43:      upper = 26,
+      100:   44:      lower = 8,
+        -:   45:      numPlayers;
+        -:   46:      
+      100:   47:  randomize(k, 10, upper, lower);
+call    0 returned 100%
+      100:   48:  k[0] = adventurer; 
+        -:   49:
+      100:   50:  numPlayers = (rand() % (4 - 2 + 1)) + 2;
+call    0 returned 100%
+        -:   51:
+      100:   52:  initializeGame(numPlayers, k, seed, G);
+call    0 returned 100%
+      100:   53:}
+        -:   54:
+function randomGameState called 100 returned 100% blocks executed 100%
+      100:   55:void randomGameState(struct gameState *G)
+        -:   56:{
+        -:   57:  int i,
+        -:   58:      j,
+      100:   59:      countUpper = 15,
+      100:   60:      countLower = 0,
+        -:   61:      tableCards[16],
+        -:   62:      card,
+        -:   63:      treasureCount;
+        -:   64:
+     1100:   65:  for(i = 7; i < 17; i++)
+branch  0 taken 91%
+branch  1 taken 9% (fallthrough)
+        -:   66:  {
+     1000:   67:    tableCards[i] = k[i-7];
+        -:   68:  }
+        -:   69:
+      800:   70:  for(i = 0; i < 7; i++)
+branch  0 taken 88%
+branch  1 taken 13% (fallthrough)
+        -:   71:  {
+      700:   72:    tableCards[i] = i;
+        -:   73:  }
+        -:   74:  
+      395:   75:  for(i = 0; i < G->numPlayers; i++)
+branch  0 taken 75%
+branch  1 taken 25% (fallthrough)
+        -:   76:  {
+      295:   77:    G->handCount[i] = (rand() % (countUpper - countLower + 1)) + countLower;
+call    0 returned 100%
+        -:   78:    do
+        -:   79:    {
+      296:   80:      G->deckCount[i] = (rand() % (countUpper - countLower + 1)) + countLower;
+call    0 returned 100%
+      296:   81:      G->discardCount[i] = (rand() % (countUpper - countLower + 1)) + countLower;
+call    0 returned 100%
+      296:   82:    }while((G->deckCount[i] + G->discardCount[i]) < 2);
+branch  0 taken 1%
+branch  1 taken 99% (fallthrough)
+        -:   83:
+     2607:   84:    for(j = 0; j < G->handCount[i]; j++)
+branch  0 taken 89%
+branch  1 taken 11% (fallthrough)
+        -:   85:    {
+     2312:   86:      card = (rand() % (countUpper - countLower + 1)) + countLower;
+call    0 returned 100%
+     2312:   87:      G->hand[i][j] = tableCards[card];
+        -:   88:    }
+        -:   89:
+        -:   90:    do
+        -:   91:    {
+      626:   92:      treasureCount = 0;
+     3602:   93:      for(j = 0; j < G->deckCount[i]; j++)
+branch  0 taken 83%
+branch  1 taken 17% (fallthrough)
+        -:   94:      {
+     2976:   95:        card = (rand() % (countUpper - countLower + 1)) + countLower;
+call    0 returned 100%
+     2976:   96:        G->deck[i][j] = card;
+     2976:   97:	if(G->deck[i][j] == copper || G->deck[i][j] == silver || G->deck[i][j] == gold)
+branch  0 taken 93% (fallthrough)
+branch  1 taken 7%
+branch  2 taken 94% (fallthrough)
+branch  3 taken 6%
+branch  4 taken 8% (fallthrough)
+branch  5 taken 92%
+        -:   98:	{
+      574:   99:          treasureCount++;
+        -:  100:	}
+        -:  101:      }
+        -:  102:
+     3972:  103:      for(j = 0; j < G->discardCount[i]; j++)
+branch  0 taken 84%
+branch  1 taken 16% (fallthrough)
+        -:  104:      {
+     3346:  105:        card = (rand() % (countUpper - countLower + 1)) + countLower;
+call    0 returned 100%
+     3346:  106:        G->discard[i][j] = card;
+     3346:  107:	if(G->discard[i][j] == copper || G->discard[i][j] == silver || G->discard[i][j] == gold)
+branch  0 taken 94% (fallthrough)
+branch  1 taken 6%
+branch  2 taken 93% (fallthrough)
+branch  3 taken 7%
+branch  4 taken 7% (fallthrough)
+branch  5 taken 93%
+        -:  108:	{
+      612:  109:          treasureCount++;
+        -:  110:	}
+        -:  111:      }
+      626:  112:    }while(treasureCount < 2);
+branch  0 taken 53%
+branch  1 taken 47% (fallthrough)
+        -:  113:  }
+      100:  114:}
+        -:  115:
+function main called 1 returned 100% blocks executed 100%
+        1:  116:int main()
+        -:  117:{
+        -:  118:  int i,
+        -:  119:      j,
+        -:  120:      k,
+        -:  121:      returned,
+        -:  122:      treasureCounter,
+        1:  123:      choice1 = 0,
+        1:  124:      choice2 = 0,
+        1:  125:      choice3 = 0,
+        1:  126:      upper = 26,
+        1:  127:      lower = 0,
+        1:  128:      seed = 1000;
+        1:  129:  srand(time(NULL));
+call    0 returned 100%
+call    1 returned 100%
+        -:  130:
+      101:  131:  for(i = 0; i < 100; i ++)
+branch  0 taken 99%
+branch  1 taken 1% (fallthrough)
+        -:  132:  {
+      100:  133:    printf("\nTurn #%d\n", (i+1));
+call    0 returned 100%
+        -:  134:    struct gameState G;
+        -:  135:    struct gameState G2;
+      100:  136:    randomGameInitialize(seed, &G);
+call    0 returned 100%
+      100:  137:    randomGameState(&G);
+call    0 returned 100%
+        -:  138:  
+        -:  139:
+        -:  140:/************************************************************
+        -:  141: * TESTS
+        -:  142: * *********************************************************/
+      395:  143:    for(j = 0; j < G.numPlayers; j++)
+branch  0 taken 75%
+branch  1 taken 25% (fallthrough)
+        -:  144:    {
+      295:  145:      printf("\nPlayer %d\n", (j+1));
+call    0 returned 100%
+      295:  146:      treasureCounter = 0;
+      295:  147:      G.whoseTurn = j;
+        -:  148:
+      295:  149:      choice1 = (rand() % (upper - lower + 1)) + lower;
+call    0 returned 100%
+      295:  150:      choice2 = (rand() % (upper - lower + 1)) + lower;
+call    0 returned 100%
+      295:  151:      choice3 = (rand() % (upper - lower + 1)) + lower;
+call    0 returned 100%
+        -:  152:
+      295:  153:      G2 = G;
+      295:  154:      returned = cardEffect(adventurer, choice1, choice2, choice3, &G, 0, NULL);
+call    0 returned 100%
+        -:  155:
+     2451:  156:      for(k = 0; k < G2.deckCount[j]; k++)
+branch  0 taken 88%
+branch  1 taken 12% (fallthrough)
+        -:  157:      {
+     2156:  158:        treasureCounter++;
+        -:  159:      }
+        -:  160:
+      295:  161:      if(treasureCounter > 1)
+branch  0 taken 86% (fallthrough)
+branch  1 taken 14%
+        -:  162:      {
+      253:  163:        if(G.handCount[j] == (G2.handCount[j] + 2))
+branch  0 taken 85% (fallthrough)
+branch  1 taken 15%
+        -:  164:	{
+      216:  165:          if((G.hand[j][G.handCount[j]-1] > 3 && G.hand[j][G.handCount[j]-1] < 7) && (G.hand[j][G.handCount[j]-2] > 3 && G.hand[j][G.handCount[j]-2] < 7))
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+branch  2 taken 77% (fallthrough)
+branch  3 taken 23%
+branch  4 taken 100% (fallthrough)
+branch  5 taken 0%
+branch  6 taken 63% (fallthrough)
+branch  7 taken 37%
+        -:  166:	  {
+      105:  167:            printf("Two treasure cards in deck - added to hand: PASSED\n");
+call    0 returned 100%
+        -:  168:	  }
+        -:  169:	  else
+        -:  170:	  {
+      111:  171:            printf("Two treasure cards in deck - added to hand: FAILED\n");
+call    0 returned 100%
+        -:  172:	  }
+        -:  173:	}
+        -:  174:	else
+        -:  175:	{
+       37:  176:	  printf("Treasure cards correctly added to hand from deck: FAILED\n");
+call    0 returned 100%
+        -:  177:	}
+        -:  178:      }
+        -:  179:
+        -:  180:      else
+        -:  181:      {
+       42:  182:        printf("Less than 2 treasure cards in deck\n");
+call    0 returned 100%
+        -:  183:
+       42:  184:        if((G.hand[j][G.handCount[j]-1] > 3 && G.hand[j][G.handCount[j]-1] < 7) && (G.hand[j][G.handCount[j]-2] > 3 && G.hand[j][G.handCount[j]-2] < 7))
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+branch  2 taken 74% (fallthrough)
+branch  3 taken 26%
+branch  4 taken 97% (fallthrough)
+branch  5 taken 3%
+branch  6 taken 67% (fallthrough)
+branch  7 taken 33%
+        -:  185:	{
+       20:  186:          printf("Deck had no treasure cards, shuffled first: PASSED\n");
+call    0 returned 100%
+        -:  187:	}
+       22:  188:        else if((G.hand[j][G.handCount[j]-1] > 3 && G.hand[j][G.handCount[j]-1] < 7) && (G.hand[j][G.handCount[j]-2] != 4 && G.hand[j][G.handCount[j]-2] != 5 && G.hand[j][G.handCount[j]-2] != 6))
+branch  0 taken 100% (fallthrough)
+branch  1 taken 0%
+branch  2 taken 50% (fallthrough)
+branch  3 taken 50%
+branch  4 taken 100% (fallthrough)
+branch  5 taken 0%
+branch  6 taken 100% (fallthrough)
+branch  7 taken 0%
+branch  8 taken 100% (fallthrough)
+branch  9 taken 0%
+        -:  189:	{
+       11:  190:          printf("Deck 1 treasure card, shuffled after drawing first card: PASSED\n");
+call    0 returned 100%
+        -:  191:	}
+        -:  192:	else
+        -:  193:	{
+       11:  194:          printf("Shuffle failed\n");
+call    0 returned 100%
+        -:  195:	}
+        -:  196:
+        -:  197:      }
+        -:  198:    
+        -:  199:    }
+        -:  200:  }
+        1:  201:  printf("RANDOM TEST - ADVENTURER CARD\n***********************************************************************************************************************************\n");
+call    0 returned 100%
+        -:  202:}
