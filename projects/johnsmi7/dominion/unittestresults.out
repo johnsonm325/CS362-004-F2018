@@ -2,91 +2,91 @@ Results for Dominion Function Unit Test:
 unittest1.c:
 Testing kingdomCards:
 PASSED:
-Expected: [20, 24, 10, 11, 16, 25, 12, 8, 21, 18]
-Actual: [20, 24, 10, 11, 16, 25, 12, 8, 21, 18]
+Expected: [23, 26, 22, 20, 8, 13, 18, 19, 16, 9]
+Actual: [23, 26, 22, 20, 8, 13, 18, 19, 16, 9]
 File 'dominion.c'
-Lines executed:38.90% of 563
-Branches executed:36.21% of 417
-Taken at least once:30.22% of 417
-Calls executed:18.95% of 95
+Lines executed:2.30% of 566
+Branches executed:0.00% of 417
+Taken at least once:0.00% of 417
+Calls executed:0.00% of 96
 Creating 'dominion.c.gcov'
 
 unittest2.c:
 isGameOver correctly returns 0: PASSED
 Stack of province cards are empty and game correctly ends: PASSED
-isGameOver correctly detect supply piles 17, 6 and 14 are empty: PASSED
-isGameOver correctly detect supply piles 9, 10 and 15 are empty: PASSED
-isGameOver correctly detect supply piles 12, 19 and 22 are empty: PASSED
-isGameOver correctly detect supply piles 22, 8 and 0 are empty: PASSED
-isGameOver correctly detect supply piles 2, 10 and 7 are empty: PASSED
-isGameOver correctly detect supply piles 10, 2 and 5 are empty: PASSED
-isGameOver correctly detect supply piles 15, 5 and 19 are empty: PASSED
-isGameOver correctly detect supply piles 5, 9 and 4 are empty: PASSED
-isGameOver correctly detect supply piles 6, 12 and 16 are empty: PASSED
-isGameOver correctly detect supply piles 20, 18 and 5 are empty: PASSED
+isGameOver correctly detect supply piles 24, 10 and 20 are empty: PASSED
+isGameOver correctly detect supply piles 21, 15 and 12 are empty: PASSED
+isGameOver correctly detect supply piles 24, 11 and 2 are empty: PASSED
+isGameOver correctly detect supply piles 4, 8 and 20 are empty: PASSED
+isGameOver correctly detect supply piles 17, 18 and 11 are empty: PASSED
+isGameOver correctly detect supply piles 4, 6 and 5 are empty: PASSED
+isGameOver correctly detect supply piles 16, 1 and 9 are empty: PASSED
+isGameOver correctly detect supply piles 10, 24 and 5 are empty: PASSED
+isGameOver correctly detect supply piles 19, 4 and 15 are empty: PASSED
+isGameOver correctly detect supply piles 12, 2 and 17 are empty: PASSED
 File 'dominion.c'
-Lines executed:38.90% of 563
-Branches executed:36.21% of 417
-Taken at least once:30.22% of 417
-Calls executed:18.95% of 95
+Lines executed:19.79% of 566
+Branches executed:17.75% of 417
+Taken at least once:14.87% of 417
+Calls executed:7.29% of 96
 Creating 'dominion.c.gcov'
 
 unittest3.c:
-Compare correctly determines -34 < 50: PASSED
-Compare correctly determines -79 < -60: PASSED
-Compare correctly determines -4 < 98: PASSED
-Compare correctly determines -86 < -12: PASSED
-Compare correctly determines -65 < 69: PASSED
-Compare correctly determines -47 < -7: PASSED
-Compare correctly determines 15 > -22: PASSED
-Compare correctly determines -73 < 48: PASSED
-Compare correctly determines -66 < 4: PASSED
-Compare correctly determines 9 > -79: PASSED
-Compare correctly determines -83 < -75: PASSED
-Compare correctly determines -45 > -96: PASSED
-Compare correctly determines -52 < -12: PASSED
-Compare correctly determines -53 < -12: PASSED
-Compare correctly determines -54 < 66: PASSED
-Compare correctly determines 64 > 12: PASSED
-Compare correctly determines -35 < 85: PASSED
-Compare correctly determines 52 < 61: PASSED
-Compare correctly determines 32 > 17: PASSED
-Compare correctly determines -52 < 17: PASSED
-Compare correctly determines -15 < 1: PASSED
-Compare correctly determines -91 < 51: PASSED
-Compare correctly determines 29 < 87: PASSED
-Compare correctly determines -2 < 64: PASSED
-Compare correctly determines -9 < 57: PASSED
-Compare correctly determines 35 > 8: PASSED
-Compare correctly determines 83 > 41: PASSED
-Compare correctly determines -38 < 81: PASSED
-Compare correctly determines -72 < 9: PASSED
-Compare correctly determines -82 < -26: PASSED
-Compare correctly determines -76 < 82: PASSED
-Compare correctly determines 36 > -11: PASSED
-Compare correctly determines 16 > -13: PASSED
-Compare correctly determines 100 > 98: PASSED
-Compare correctly determines 54 < 98: PASSED
-Compare correctly determines 14 < 90: PASSED
-Compare correctly determines -52 < 24: PASSED
-Compare correctly determines 40 < 78: PASSED
-Compare correctly determines -40 < 88: PASSED
-Compare correctly determines -9 < 51: PASSED
-Compare correctly determines 44 > -75: PASSED
-Compare correctly determines -91 < -24: PASSED
-Compare correctly determines 66 > -29: PASSED
-Compare correctly determines -43 < 44: PASSED
-Compare correctly determines 31 > -75: PASSED
-Compare correctly determines -83 < 55: PASSED
-Compare correctly determines -93 < 3: PASSED
-Compare correctly determines -56 < -27: PASSED
-Compare correctly determines 41 < 94: PASSED
-Compare correctly determines -79 < -6: PASSED
+Compare correctly determines 74 < 87: PASSED
+Compare correctly determines -51 < 51: PASSED
+Compare correctly determines -19 < 74: PASSED
+Compare correctly determines 87 > -52: PASSED
+Compare correctly determines -48 == -48: PASSED
+Compare correctly determines 8 > -94: PASSED
+Compare correctly determines -9 > -30: PASSED
+Compare correctly determines -6 < 9: PASSED
+Compare correctly determines -45 < 13: PASSED
+Compare correctly determines -72 < 25: PASSED
+Compare correctly determines -99 < 44: PASSED
+Compare correctly determines 25 > -33: PASSED
+Compare correctly determines -97 < -33: PASSED
+Compare correctly determines 93 > 28: PASSED
+Compare correctly determines 33 > -7: PASSED
+Compare correctly determines 45 > -43: PASSED
+Compare correctly determines -21 < 44: PASSED
+Compare correctly determines -93 < 10: PASSED
+Compare correctly determines 17 < 95: PASSED
+Compare correctly determines 58 < 70: PASSED
+Compare correctly determines -54 < -34: PASSED
+Compare correctly determines 26 > -13: PASSED
+Compare correctly determines 36 > -81: PASSED
+Compare correctly determines 96 > 42: PASSED
+Compare correctly determines 32 < 74: PASSED
+Compare correctly determines -34 < -16: PASSED
+Compare correctly determines 18 < 41: PASSED
+Compare correctly determines 51 > -29: PASSED
+Compare correctly determines -93 < 43: PASSED
+Compare correctly determines 50 > -9: PASSED
+Compare correctly determines -65 < -56: PASSED
+Compare correctly determines 48 > 14: PASSED
+Compare correctly determines 88 > 55: PASSED
+Compare correctly determines -77 < 5: PASSED
+Compare correctly determines 49 > 32: PASSED
+Compare correctly determines -76 < 45: PASSED
+Compare correctly determines 98 > 50: PASSED
+Compare correctly determines -69 < -17: PASSED
+Compare correctly determines 20 < 77: PASSED
+Compare correctly determines 75 > -99: PASSED
+Compare correctly determines 1 < 91: PASSED
+Compare correctly determines -15 < 69: PASSED
+Compare correctly determines 32 > -64: PASSED
+Compare correctly determines -61 < -11: PASSED
+Compare correctly determines 79 > 39: PASSED
+Compare correctly determines 80 > 65: PASSED
+Compare correctly determines 83 > 27: PASSED
+Compare correctly determines -72 < 71: PASSED
+Compare correctly determines -68 < -48: PASSED
+Compare correctly determines -75 < 81: PASSED
 File 'dominion.c'
-Lines executed:38.90% of 563
-Branches executed:36.21% of 417
-Taken at least once:30.22% of 417
-Calls executed:18.95% of 95
+Lines executed:19.96% of 566
+Branches executed:17.75% of 417
+Taken at least once:15.11% of 417
+Calls executed:7.29% of 96
 Creating 'dominion.c.gcov'
 
 unittest4.c:
@@ -118,9 +118,9 @@ Cost of 4 successfully returned: SUCCESS
 Cost of 4 successfully returned: SUCCESS
 Cost of 4 successfully returned: SUCCESS
 Card does not existFile 'dominion.c'
-Lines executed:38.90% of 563
-Branches executed:36.21% of 417
-Taken at least once:30.22% of 417
-Calls executed:18.95% of 95
+Lines executed:25.27% of 566
+Branches executed:24.46% of 417
+Taken at least once:21.82% of 417
+Calls executed:7.29% of 96
 Creating 'dominion.c.gcov'
 

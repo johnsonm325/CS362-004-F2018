@@ -14,10 +14,10 @@ Discard count is 2: PASSED
 Deck count is 1: PASSED
 
 File 'dominion.c'
-Lines executed:38.90% of 563
-Branches executed:36.21% of 417
-Taken at least once:30.22% of 417
-Calls executed:18.95% of 95
+Lines executed:32.51% of 566
+Branches executed:33.81% of 417
+Taken at least once:25.90% of 417
+Calls executed:12.50% of 96
 Creating 'dominion.c.gcov'
 
 cardtest2.c:
@@ -34,10 +34,10 @@ Seven cards now in hand and smithy card was removed: PASSED
 Smithy card was played: PASSED
 
 File 'dominion.c'
-Lines executed:38.90% of 563
-Branches executed:36.21% of 417
-Taken at least once:30.22% of 417
-Calls executed:18.95% of 95
+Lines executed:35.69% of 566
+Branches executed:35.73% of 417
+Taken at least once:27.34% of 417
+Calls executed:15.63% of 96
 Creating 'dominion.c.gcov'
 
 cardtest3.c:
@@ -56,10 +56,10 @@ Great Hall card was played: PASSED
 One action added: PASSED
 
 File 'dominion.c'
-Lines executed:38.90% of 563
-Branches executed:36.21% of 417
-Taken at least once:30.22% of 417
-Calls executed:18.95% of 95
+Lines executed:36.93% of 566
+Branches executed:35.73% of 417
+Taken at least once:27.58% of 417
+Calls executed:18.75% of 96
 Creating 'dominion.c.gcov'
 
 cardtest4.c:
@@ -76,9 +76,9 @@ Outpost card was played: PASSED
 Outpost flag set: PASSED
 
 File 'dominion.c'
-Lines executed:38.90% of 563
-Branches executed:36.21% of 417
-Taken at least once:30.22% of 417
-Calls executed:18.95% of 95
+Lines executed:37.63% of 566
+Branches executed:35.73% of 417
+Taken at least once:28.06% of 417
+Calls executed:19.79% of 96
 Creating 'dominion.c.gcov'
 

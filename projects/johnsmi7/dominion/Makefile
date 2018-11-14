@@ -78,20 +78,23 @@ cardTests: cardtest1.c cardtest2.c cardtest3.c cardtest4.c dominion.o rngs.o
 randomCardTests: randomtestadventurer.c randomtestcard1.c randomtestcard2.c dominion.o rngs.o
 	echo "Results for Dominion Card Random Tests:" > randomcardtestresults.out
 
-	echo "randomtestadventuruer.c:" >> randomcardtestresults.out
+	echo "randomtestadventuruer.c:" >> randomtestadventurer.out
 	gcc -o randomtestadventurer -g randomtestadventurer.c dominion.o rngs.o $(CFLAGS)
-	./randomtestadventurer >> randomcardtestresults.out
-	gcov -b randomtestadventurer.c >> randomcardtestresults.out
+	./randomtestadventurer >> randomtestadventurer.out
+	gcov -b -f dominion.c | grep "adventurerCard" -B 0 -A 5 >> randomtestadventurer.out
+	gcov -b dominion.c >> randomtestadventurer.out
 
-	echo "randomtestcard1.c:" >> randomcardtestresults.out
+	echo "randomtestcard1.c:" >> randomtestcard1.out
 	gcc -o randomtestcard1 -g randomtestcard1.c dominion.o rngs.o $(CFLAGS)
-	./randomtestcard1 >> randomcardtestresults.out
-	gcov -b randomtestcard1.c >> randomcardtestresults.out
+	./randomtestcard1 >> randomtestcard1.out
+	gcov -b -f dominion.c | grep "smithyCard" -B 0 -A 5 >> randomtestcard1.out
+	gcov -b dominion.c >> randomtestcard1.out
 
-	echo "randomtestcard2.c:" >> randomcardtestresults.out
+	echo "randomtestcard2.c:" >> randomtestcard2.out
 	gcc -o randomtestcard2 -g randomtestcard2.c dominion.o rngs.o $(CFLAGS)
-	./randomtestcard2 >> randomcardtestresults.out
-	gcov -b randomtestcard2.c >> randomcardtestresults.out
+	./randomtestcard2 >> randomtestcard2.out
+	gcov -b -f dominion.c | grep "greatHallCard" -B 0 -A 5 >> randomtestcard2.out
+	gcov -b dominion.c >> randomtestcard2.out
 
 player: player.c interface.o
 	gcc -o player player.c -g  dominion.o rngs.o interface.o $(CFLAGS)
