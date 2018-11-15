@@ -1,0 +1,126 @@
+Results for Dominion Function Unit Test:
+unittest1.c:
+Testing kingdomCards:
+PASSED:
+Expected: [26, 11, 20, 14, 16, 22, 25, 17, 21, 7]
+Actual: [26, 11, 20, 14, 16, 22, 25, 17, 21, 7]
+File 'dominion.c'
+Lines executed:2.32% of 560
+Branches executed:0.00% of 417
+Taken at least once:0.00% of 417
+Calls executed:0.00% of 96
+Creating 'dominion.c.gcov'
+
+unittest2.c:
+isGameOver correctly returns 0: PASSED
+Stack of province cards are empty and game correctly ends: PASSED
+isGameOver correctly detect supply piles 19, 14 and 2 are empty: PASSED
+isGameOver correctly detect supply piles 9, 24 and 5 are empty: PASSED
+isGameOver correctly detect supply piles 23, 5 and 10 are empty: PASSED
+isGameOver correctly detect supply piles 19, 22 and 15 are empty: PASSED
+isGameOver correctly detect supply piles 1, 2 and 13 are empty: PASSED
+isGameOver correctly detect supply piles 19, 1 and 9 are empty: PASSED
+isGameOver correctly detect supply piles 15, 23 and 19 are empty: PASSED
+isGameOver correctly detect supply piles 1, 16 and 5 are empty: PASSED
+isGameOver correctly detect supply piles 5, 24 and 20 are empty: PASSED
+isGameOver correctly detect supply piles 0, 15 and 4 are empty: PASSED
+File 'dominion.c'
+Lines executed:20.00% of 560
+Branches executed:17.75% of 417
+Taken at least once:14.87% of 417
+Calls executed:7.29% of 96
+Creating 'dominion.c.gcov'
+
+unittest3.c:
+Compare correctly determines -5 > -19: PASSED
+Compare correctly determines 55 < 71: PASSED
+Compare correctly determines -33 < -1: PASSED
+Compare correctly determines -50 > -62: PASSED
+Compare correctly determines 87 > 73: PASSED
+Compare correctly determines 85 > -89: PASSED
+Compare correctly determines -1 < 86: PASSED
+Compare correctly determines 38 < 61: PASSED
+Compare correctly determines 52 > 3: PASSED
+Compare correctly determines -1 < 1: PASSED
+Compare correctly determines -51 > -67: PASSED
+Compare correctly determines 76 > 8: PASSED
+Compare correctly determines -34 < 82: PASSED
+Compare correctly determines -85 < 100: PASSED
+Compare correctly determines -61 < -57: PASSED
+Compare correctly determines 30 < 35: PASSED
+Compare correctly determines -26 > -66: PASSED
+Compare correctly determines -45 < 41: PASSED
+Compare correctly determines 33 > 6: PASSED
+Compare correctly determines 30 > 20: PASSED
+Compare correctly determines -72 < 14: PASSED
+Compare correctly determines -19 < 28: PASSED
+Compare correctly determines -51 > -82: PASSED
+Compare correctly determines -62 < 51: PASSED
+Compare correctly determines 21 < 37: PASSED
+Compare correctly determines -49 < 70: PASSED
+Compare correctly determines 70 > -74: PASSED
+Compare correctly determines -22 < 87: PASSED
+Compare correctly determines 58 > -57: PASSED
+Compare correctly determines 86 < 98: PASSED
+Compare correctly determines -14 < 15: PASSED
+Compare correctly determines -18 < 61: PASSED
+Compare correctly determines 49 > 37: PASSED
+Compare correctly determines -49 > -69: PASSED
+Compare correctly determines 93 > 81: PASSED
+Compare correctly determines 1 > -79: PASSED
+Compare correctly determines -56 < 83: PASSED
+Compare correctly determines -1 > -57: PASSED
+Compare correctly determines -100 < 37: PASSED
+Compare correctly determines 94 > 22: PASSED
+Compare correctly determines -76 < -56: PASSED
+Compare correctly determines -59 < 44: PASSED
+Compare correctly determines -79 < -31: PASSED
+Compare correctly determines 30 > 29: PASSED
+Compare correctly determines -38 < 15: PASSED
+Compare correctly determines 26 > -1: PASSED
+Compare correctly determines 80 > 58: PASSED
+Compare correctly determines -91 < -22: PASSED
+Compare correctly determines -55 < -40: PASSED
+Compare correctly determines 10 > -63: PASSED
+File 'dominion.c'
+Lines executed:20.18% of 560
+Branches executed:17.75% of 417
+Taken at least once:15.11% of 417
+Calls executed:7.29% of 96
+Creating 'dominion.c.gcov'
+
+unittest4.c:
+Cost of 0 successfully returned: SUCCESS
+Cost of 2 successfully returned: SUCCESS
+Cost of 5 successfully returned: SUCCESS
+Cost of 8 successfully returned: SUCCESS
+Cost of 0 successfully returned: SUCCESS
+Cost of 3 successfully returned: SUCCESS
+Cost of 6 successfully returned: SUCCESS
+Cost of 6 successfully returned: SUCCESS
+Cost of 5 successfully returned: SUCCESS
+Cost of 4 successfully returned: SUCCESS
+Cost of 4 successfully returned: SUCCESS
+Cost of 5 successfully returned: SUCCESS
+Cost of 4 successfully returned: SUCCESS
+Cost of 4 successfully returned: SUCCESS
+Cost of 3 successfully returned: SUCCESS
+Cost of 4 successfully returned: SUCCESS
+Cost of 3 successfully returned: SUCCESS
+Cost of 5 successfully returned: SUCCESS
+Cost of 3 successfully returned: SUCCESS
+Cost of 5 successfully returned: SUCCESS
+Cost of 3 successfully returned: SUCCESS
+Cost of 4 successfully returned: SUCCESS
+Cost of 2 successfully returned: SUCCESS
+Cost of 5 successfully returned: SUCCESS
+Cost of 4 successfully returned: SUCCESS
+Cost of 4 successfully returned: SUCCESS
+Cost of 4 successfully returned: SUCCESS
+Card does not existFile 'dominion.c'
+Lines executed:25.54% of 560
+Branches executed:24.46% of 417
+Taken at least once:21.82% of 417
+Calls executed:7.29% of 96
+Creating 'dominion.c.gcov'
+
